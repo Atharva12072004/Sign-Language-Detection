@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <title>Sign Language Detection</title>   
+</head>
+<body id="body">
+    <div class="wrap">
+        <!-- Dynamically generate 200 triangles -->
+        <!-- No need to hard-code all divs here since it's handled by SCSS -->
+      </div>
+    <div class="container">
+        <h1 class="title">Sign Language Detection</h1>
+
+        <div class="section">
+            <h2>Capture Gesture</h2>
+            <input type="text" id="gestureLabel" placeholder="Enter gesture label">
+            <button id="captureGestureBtn">Capture Gesture</button>
+        </div>
+
+        <div class="section">
+            <h2>Train Model</h2>
+            <button id="trainModelBtn">Train Model</button>
+        </div>
+
+        <div class="section">
+            <h2>Recognize Gesture</h2>
+            <button id="recognizeGestureBtn">Recognize Gesture</button>
+        </div>
+    </div>
+
+    <script src="{{ url_for('static', filename='js/app.js') }}"></script>
+</body>
+</html>

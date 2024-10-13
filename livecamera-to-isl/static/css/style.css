@@ -1,0 +1,224 @@
+body {
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: black;
+    overflow: hidden; /* Prevent scrolling */
+}
+
+.wrap {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 0; /* Lower z-index for background triangles */
+    perspective: 1000px;
+}
+
+.container {
+    z-index: 10; /* Ensure the white box is above the triangles */
+    text-align: center;
+    max-width: 600px;
+    background-color: #fff;
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 0px 0px 15px rgba(255, 0, 0, 255);
+}
+
+
+form {
+    margin-bottom: 20px;
+}
+
+#videoContainer {
+    margin-top: 20px;
+}
+
+#videoFeed {
+    width: 100%;
+    max-width: 600px;
+    height: auto;
+}
+
+.popup {
+    display: none;
+    position: fixed;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    background-color: blue;
+    padding: 20px;
+    border: 2px solid #000;
+}
+
+.popup .close-btn {
+    float: right;
+    cursor: pointer;
+}
+/* Basic Styles */
+
+.popup {
+    display: none;
+    position: fixed;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    background-color: white;
+    border: 1px solid #ccc;
+    padding: 20px;
+    z-index: 1000;
+}
+#camera-feed {
+    width: 100%;
+    max-width: 600px; /* Adjust as needed */
+    margin: auto;
+    border: 2px solid #ccc;
+}
+
+#camera-frame {
+    width: 100%;
+    height: auto;
+}
+.popup-close-btn {
+    margin-top: 10px;
+}
+
+.container {
+    background-color: white;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0px 0px 15px rgba(255, 0, 0, 255);
+    width: 80%;
+    max-width: 800px;
+}
+
+.title {
+    color: #fff;
+    font-size: 2em;
+    font-weight: bold;
+    text-transform: uppercase;
+    background: -webkit-linear-gradient(#f953c6, #b91d73);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    margin-bottom: 20px;
+}
+
+.section {
+    margin-bottom: 30px;
+}
+.tri {
+    position: absolute;
+    width: 0;
+    height: 0;
+    border-left: 5px solid transparent; /* Reduced size */
+    border-right: 5px solid transparent; /* Reduced size */
+    border-bottom: 10px solid lightgray; /* Light gray color */
+    transform-origin: 50% 50%;
+    animation: randomMovement 10s infinite ease-in-out;
+    opacity: 0.8;
+}
+@keyframes randomMovement {
+    0% { transform: translate(0, 0) rotate(0deg); }
+    25% { transform: translate(150px, 100px) rotate(180deg); }
+    50% { transform: translate(-200px, -150px) rotate(360deg); }
+    75% { transform: translate(250px, -100px) rotate(540deg); }
+    100% { transform: translate(0, 0) rotate(720deg); }
+}
+button {
+    padding: 10px 20px;
+    background-color: #e91e63;
+    color: white;
+    border: none;
+    border-radius: 50px;
+    cursor: pointer;
+    font-size: 18px;
+    box-shadow: 0px 3px 10px rgba(233, 30, 99, 0.3);
+}
+
+button:hover {
+    background-color: lightblue;
+    color: #000;
+    transform: scale(1.05);
+}
+
+/* Camera Section */
+#camera-feed {
+    margin-top: 15px;
+    text-align: center;
+}
+
+#camera-frame {
+    width: 100%;
+    max-width: 500px;
+    border: 2px solid #007bff;
+    border-radius: 10px;
+    display: none;
+}
+
+input[type="text"] {
+    padding: 10px;
+    width: 300px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    outline: none;
+    background-color: #333;
+    color: #fff;
+    box-shadow: 0px 0px 5px rgba(255, 0, 0, 255);
+}
+input[type="text"]::placeholder {
+    color: #888;
+}
+
+
+
+/* Animations */
+button {
+    position: relative;
+    overflow: hidden;
+}
+
+button::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 300%;
+    height: 300%;
+    background-color: rgba(255, 255, 255, 0.2);
+    transform: translate(-50%, -50%) rotate(45deg);
+    transition: width 0.5s ease, height 0.5s ease;
+}
+
+button:hover::before {
+    width: 0;
+    height: 0;
+}
+/* Responsive Design */
+@media screen and (max-width: 768px) {
+    input[type="text"] {
+        width: 200px; /* Reduce width for tablets */
+    }
+    video, .letter-container {
+        width: 300px; /* Reduce the size for videos and letter container */
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .container {
+        max-width: 90%; /* Allow more flexibility for small devices */
+        padding: 20px;
+    }
+    input[type="text"] {
+        width: 100%; /* Full width input field for mobile devices */
+    }
+    button {
+        width: 100%;
+        padding: 10px 0; /* Full-width button for mobile */
+    }
+}
